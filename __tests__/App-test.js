@@ -12,9 +12,19 @@ import {render, screen, waitFor} from '@testing-library/react-native';
 it('renders correctly', () => {
   renderer.create(<App />);
 });
-it('Displays heading Shopping List', async () => {
+it('displays heading Shopping List', async () => {
   const app = render(<App />);
   await waitFor(() => {
     expect(app.findByText('Shopping list')).toBeTruthy();
   });
 });
+
+it('displays shopping list items', async()=>{
+    const app = render(<App />);
+    await waitFor(() => {
+      expect(app.findByText('Milk')).toBeTruthy();
+      expect(app.findByText('Cookies')).toBeTruthy();
+      expect(app.findByText('Pencils')).toBeTruthy();
+      expect(app.findByText('Dishwasher liquid')).toBeTruthy();
+  });
+})
