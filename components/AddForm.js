@@ -4,6 +4,10 @@ import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import uuid from 'react-native-uuid';
 const AddForm = ({addItem}) => {
   const [text, setText] = useState('');
+  const handlePress = () => {
+    addItem({id: uuid.v4(), text: text});
+    setText('');
+  };
   return (
     <TouchableOpacity style={styles.addForm}>
       <View style={styles.addFormView}>
@@ -18,7 +22,7 @@ const AddForm = ({addItem}) => {
           size={20}
           color="blue"
           testID="add-icon"
-          onPress={() => addItem({id: uuid.v4(), text: text})}
+          onPress={handlePress}
         />
       </View>
     </TouchableOpacity>
