@@ -28,3 +28,10 @@ it('displays shopping list items', async () => {
     expect(app.findByText('Dishwasher liquid')).toBeTruthy();
   });
 });
+
+it('displays delete icon for each item in shopping list',()=>{
+  const app = render(<App />);
+  await waitFor(() => {
+    expect(app.findAllByTestId('delete-btn').length).toBeGreaterThan(0);
+  });
+})
