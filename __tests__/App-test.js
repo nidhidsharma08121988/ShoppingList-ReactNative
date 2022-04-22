@@ -54,11 +54,22 @@ describe('App', () => {
       const addIcon = queryByTestId('add-icon');
       expect(addIcon).toBeTruthy();
     });
-    it('displays input box for text', () => {
+    it('displays input box for text', async () => {
       const {queryByTestId} = render(<App />);
       const textInput = queryByTestId('text-input');
       expect(textInput).toBeTruthy();
     });
-    it('when user clicks add icon, the item must be added to list', () => {});
+    it('when user clicks add icon, the item must be added to list', async () => {
+      const {getByTestId, getByText} = render(<App />);
+      const addIcon = getByTestId('add-icon');
+      const textInput = getByTestId('text-input');
+
+      fireEvent.changeText(textInput, 'Grocery');
+      fireEvent.press(addIcon);
+
+      await waitFor(() => {
+        expect(getByText('Grocery')).toBeTruthy();
+      });
+    });
   });
 });
