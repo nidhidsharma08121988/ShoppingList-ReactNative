@@ -31,7 +31,10 @@ const AddForm = ({addItem}) => {
 
 const styles = StyleSheet.create({
   addForm: {
-    backgroundColor: 'grey',
+    backgroundColor: 'smokewhite',
+    margin:1,
+    padding: 14,
+    
   },
   addFormView: {
     flexDirection: 'row',
@@ -41,6 +44,10 @@ const styles = StyleSheet.create({
   textInput: {
     fontSize: 20,
     fontWeight: '500',
+    borderRadius: 10,
+    borderColor:'grey',
+    borderWidth:1,
+    minWidth:260,
   },
 });
 
