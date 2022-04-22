@@ -51,11 +51,13 @@ describe('App', () => {
   describe('Add item', () => {
     it('displays add icon', () => {
       const {queryByTestId} = render(<App />);
-      expect(queryByTestId('add-icon')).toBeTruthy();
+      const addIcon = queryByTestId('add-icon');
+      expect(addIcon).toBeTruthy();
     });
     it('displays input box for text', () => {
       const {queryByTestId} = render(<App />);
-      expect(queryByTestId('user-input')).toBeTruthy();
+      const textInput = queryByTestId('text-input');
+      expect(textInput).toBeTruthy();
     });
     it('when user clicks add icon, the item must be added to list', () => {});
   });

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {View, StyleSheet, FlatList, Text} from 'react-native';
 import uuid from 'react-native-uuid';
+import AddForm from './components/AddForm';
 import Header from './components/Header';
 import ListItem from './components/ListItem';
 
@@ -25,6 +26,7 @@ const App = () => {
   return (
     <View style={styles.container}>
       <Header />
+      <AddForm />
       <FlatList data={items} renderItem={renderItem} deleteItem={deleteItem} />
     </View>
   );
