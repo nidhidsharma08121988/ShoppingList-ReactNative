@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import {View, StyleSheet, FlatList, Text} from 'react-native';
 import uuid from 'react-native-uuid';
 import Header from './components/Header'
-
+import ListItem from './components/ListItem'
 
 const App = () => {
   const [items,setItems] = useState([
@@ -13,7 +13,7 @@ const App = () => {
   {id:uuid.v4(),text:'Dishwash liquid'}
   ])
 
-  const renderItem=({item})=>(<Text>{item.text}</Text>)
+  const renderItem=({item})=>(<ListItem item={item}/>)
   
   return (
     <View style={styles.container}>
