@@ -32,5 +32,5 @@ it('displays shopping list items', async () => {
 
 it('displays delete icon for each item in shopping list', async () => {
   const {findAllByTestId} = render(<App />);
-  expect((await findAllByTestId('remove-icon')).length).toBe(5git );
+  expect((await findAllByTestId('remove-icon')).length).toBe(5);
 });
