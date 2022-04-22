@@ -18,6 +18,8 @@ const App = () => {
   return (
     <View style={styles.container}>
      <Header/>
+      <FlatList data={items} renderItem={renderItem}/>
+
     </View>
   );
 };
