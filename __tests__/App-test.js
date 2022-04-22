@@ -29,9 +29,9 @@ it('displays shopping list items', async () => {
   });
 });
 
-it('displays delete icon for each item in shopping list',()=>{
+it('displays delete icon for each item in shopping list', async () => {
   const app = render(<App />);
   await waitFor(() => {
-    expect(app.findAllByTestId('delete-btn').length).toBeGreaterThan(0);
+    expect(app.findAllByTestId('delete-btn').length).toBeEqualTo(4);
   });
-})
+});
