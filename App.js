@@ -18,6 +18,10 @@ const App = () => {
     <ListItem item={item} deleteItem={deleteItem} />
   );
 
+  const addItem = item => {
+    const newListItems = [item, ...items];
+    setItems(newListItems);
+  };
   const deleteItem = id => {
     const newListItems = items.filter(item => item.id !== id);
     setItems(newListItems);
@@ -26,7 +30,7 @@ const App = () => {
   return (
     <View style={styles.container}>
       <Header />
-      <AddForm />
+      <AddForm addItem={addItem} />
       <FlatList data={items} renderItem={renderItem} deleteItem={deleteItem} />
     </View>
   );
