@@ -35,8 +35,10 @@ it('displays delete icon for each item in shopping list', () => {
 });
 
 it('when user clicks delete, item is removed', async () => {
-  const {findByText} = render(<App />);
-  const milk = await findByText('Milk');
-  fireEvent.press(milk);
-  expect(await findByText('Milk')).toBeFalsy();
+  const {queryByText, getAllByTestId} = render(<App />);
+  const milkDelBtn = getAllByTestId('remove-icon')[0];
+  fireEvent.press(milkDelBtn);
+  await waitFor(() => {
+    expect(queryByText('Milk')).toBeFalsy();
+  });
 });

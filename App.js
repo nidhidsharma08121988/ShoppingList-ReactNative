@@ -13,7 +13,7 @@ const App = () => {
     {id: uuid.v4(), text: 'DishWash liquid'},
   ]);
 
-  const renderItem = ({item}) => <ListItem item={item} />;
+  const renderItem = ({item}) => <ListItem item={item} deleteItem={deleteItem}/>;
 
   const deleteItem = id => {
     const newListItems = items.filter(item => item.id !== id);
