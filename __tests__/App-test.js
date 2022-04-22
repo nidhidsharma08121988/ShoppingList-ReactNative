@@ -8,29 +8,30 @@ import App from '../App';
 // Note: test renderer must be required after react-native.
 import {fireEvent, render, waitFor} from '@testing-library/react-native';
 
-it('renders correctly', () => {
-  render(<App />);
+it('displays heading Shopping List', () => {
+  const {queryByText} = render(<App />);
+  const title = queryByText('Shopping List');
+  expect(title).toBeTruthy();
 });
 
-it('displays heading Shopping List', async () => {
-  const {findByText} = render(<App />);
-  expect(await findByText('Shopping list')).toBeTruthy();
-});
+it('displays shopping list items', () => {
+  const {queryByText} = render(<App />);
+  const listOfItems = [
+    'Milk',
+    'Cookies',
+    'Notebook',
+    'Pencils',
+    'DishWash liquid',
+  ];
 
-it('displays shopping list items', async () => {
-  const {findByText} = render(<App />);
-
-  await waitFor(() => {
-    expect(findByText('Milk')).toBeTruthy();
-    expect(findByText('Cookies')).toBeTruthy();
-    expect(findByText('Pencils')).toBeTruthy();
-    expect(findByText('Dishwasher liquid')).toBeTruthy();
+  listOfItems.map(itemText => {
+    expect(queryByText(itemText)).toBeTruthy();
   });
 });
 
-it('displays delete icon for each item in shopping list', async () => {
-  const {findAllByTestId} = render(<App />);
-  expect((await findAllByTestId('remove-icon')).length).toBe(5);
+it('displays delete icon for each item in shopping list', () => {
+  const {queryAllByTestId} = render(<App />);
+  expect(queryAllByTestId('remove-icon').length).toBe(5);
 });
 
 it('when user clicks delete, item is removed', async () => {
